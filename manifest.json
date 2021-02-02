@@ -1,0 +1,33 @@
+{
+  "name": "Vertuo Pod Data Scraper",
+  "description": "Get the names of vertuo pods",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "coffeepodscraper.html",
+    "default_icon": {
+      "19": "/images/coffee19.png",
+      "38": "images/coffee38.png"
+    }
+  },
+  "icons": {
+    "16": "/images/coffee16.png",
+    "48": "/images/coffee48.png"
+  },
+  "permissions": ["declarativeContent", "activeTab", "tabs", "downloads"],
+  "host_permissions": [
+    "https://www.nespresso.com/us/en/order/capsules/vertuo",
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+       "matches": [
+     "*://www.nespresso.com/us/en/order/capsules/vertuo"
+       ],
+       "js": ["scripts/content_vertuo.js"]
+     }
+   ]
+}
