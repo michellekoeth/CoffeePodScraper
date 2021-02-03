@@ -38,8 +38,7 @@ async function goToPage(url, url_index, tab_id) {
 						let objectURL = URL.createObjectURL(blob);
 						chrome.downloads.download({ url: objectURL, filename: ('coffeepods.json'), conflictAction: 'overwrite' });
 					});
-					// Wait because this page has a popunder that occurs 5 seconds after loading and messes up things
-					// execute content script
+			
 					chrome.tabs.executeScript({ file: '/scripts/content_vertuo.js' }, function() {
 						// resolve Promise after content script has executed
 						resolve();
